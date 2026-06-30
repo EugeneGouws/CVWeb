@@ -26,15 +26,28 @@ Recruiter's original pointers (verbatim from his notes):
 
 ## Dashboard Structure (agreed)
 
-1. **About / narrative** — one-paragraph who-I-am / experience / what-I-offer
-2. **Data Driven Solutions** — case study: SuperVet packaging (FMCG/brand management)
-3. **Convenience Driven Solutions** — case study: EduTech tools (TimeView + TimeEditor), framed as domain-experience-driven rather than data-driven
-4. **Outcome Based Project Management** — case study: recording studio design & build
-5. **AI Understanding & Judgment** — Eugene's stance on AI use
-6. **Digital Fluency & Early Adoption** — actual AI/Claude Code workflow
-7. **Links / CV download** — GitHub, LinkedIn, live demos (Baker's Cost Pro, TimeView), downloadable CV
+**Locked decisions (this session).** See `plan.md` (living build plan) and `handoff.md` (cross-chat integration contract) for execution detail; this section is the canonical record of *what* is being built.
 
-Note: Baker's Cost Pro (kitchen costing webapp) is **not** one of the three case studies — it's a separate standalone portfolio link, grouped conceptually with TimeView/TimeEditor as "software built to solve a problem I personally had," but doesn't get its own narrative slide.
+**Concept = hybrid, tiered.** A linear scroll spine gives 30-second legibility; the hero is an interactive **skills-translation node map**; the map's edges deep-link down to case-study panels. Tier 0 serves the 30s scan, the tiers below reward a hiring manager who explores.
+
+**Hero node map (content locked):**
+- Left column — past domains: **Maths · Brand Mgmt · Teaching · Audio Eng**
+- Right column — offerings: **Data-Driven · Product Building · Project Mgmt · AI Judgment**
+- Edges (the wiring, confirmed): Maths→Data, Maths→AI, Brand→Data, Teaching→Product, Teaching→PM, Audio→PM, Software→Product. The **crossing edges are the visual proof of transfer** — that's the whole point of the map.
+- Each edge deep-links to a panel: Brand+Maths→**SuperVet** · Teaching+Software→**EduTech** · Audio+Teaching→**Recording Studio** · Maths→**AI sections**.
+
+**Page tiers:**
+- **Tier 0 — hero / 30s read:** name, one-paragraph narrative (who-I-am / experience / what-I-offer), the node map with edges *pre-animated* so transfer reads without interaction.
+- **Tier 1 — case-study panels (deep-link targets):** **SuperVet** `#supervet` (Data Driven Solutions — Chart.js native chart + `data_driven_supervet.mp4`), **EduTech** `#edutech` (Convenience Driven Solutions — TimeView/TimeEditor, framed domain-experience-driven not data-driven), **Recording Studio** `#studio` (Outcome Based Project Management — phased delivery + planned acoustics animation).
+- **Tier 2 — AI + links:** **AI Understanding & Judgment** and **Digital Fluency & Early Adoption** `#ai`; then **Links / CV** `#links` (GitHub, LinkedIn, live demos — Baker's Cost Pro, TimeView — downloadable CV).
+
+**Palette** = carry the navy/ice/coral from the delivered Manim animation (`#0E1330` / `#CADCFC` / `#F96167`) so the embedded video and the page read as one piece.
+
+**Tech = dependency-free static.** Hand-rolled SVG node map (`<path>` edges animated via `stroke-dashoffset`; click → smooth-scroll to the panel anchor). Chart.js via a single CDN tag for the data panels. IntersectionObserver for scroll reveals. No framework, no build step → deploys straight to **Cloudflare Pages**.
+
+**Integration contract** (so components built in separate chats combine without rework): one shared `tokens.css` (palette + type scale), fixed anchor IDs `#supervet #edutech #studio #ai #links` that the node-map edges target, and a single `index.html` shell that components slot into. No component invents its own palette or layout. Full contract lives in `handoff.md`.
+
+Note: Baker's Cost Pro (kitchen costing webapp) is **not** one of the three case studies — it's a separate standalone portfolio link in Tier 2, grouped conceptually with TimeView/TimeEditor as "software built to solve a problem I personally had," but doesn't get its own narrative panel.
 
 ## Case Study 1: Data Driven Solutions (SuperVet)
 
