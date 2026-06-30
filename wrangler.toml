@@ -1,0 +1,7 @@
+name = "cvweb"
+compatibility_date = "2025-01-01"
+
+# Static site served via Cloudflare Workers Assets — the whole repo root is the
+# site; .assetsignore keeps source/tooling out of the upload.
+[assets]
+directory = "."

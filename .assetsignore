@@ -1,0 +1,14 @@
+# Keep source, tooling and local-only material out of the deployed Worker.
+.git/
+.idea/
+tools/
+media/
+data/
+manim/
+node_modules/
+*.md
+.gitignore
+.assetsignore
+wrangler.toml
+package.json
+package-lock.json
