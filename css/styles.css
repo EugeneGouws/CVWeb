@@ -274,6 +274,21 @@ a { color: inherit; }
   font-weight: 600;
   color: var(--text-dim);
 }
+/* filled mount (chart/animation injected) switches from centred placeholder to block */
+.exp-mount.is-filled {
+  display: block;
+  text-align: left;
+  padding: var(--s-4);
+}
+.exp-chart { position: relative; height: 420px; width: 100%; }
+.exp-caption {
+  margin: var(--s-3) 0 0;
+  color: var(--text-dim);
+  font-size: var(--t-sm);
+  line-height: var(--lh-snug);
+  max-width: 70ch;
+}
+.exp-caption strong { color: var(--text); }
 
 /* ---- Links list ---- */
 .links__list {
