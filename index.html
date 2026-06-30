@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eugene Gouws — Maths, music, and the software in between</title>
+  <meta name="description" content="Eugene Gouws — maths, music, and the software in between. A live portfolio: one way of solving problems, ported across brand strategy, acoustics, teaching and code." />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- ===== Nav ===== -->
+  <header class="nav">
+    <a class="nav__mark" href="#top" aria-label="Eugene Gouws — top">EG</a>
+    <nav class="nav__links" aria-label="Sections">
+      <a href="#intro">Story</a>
+      <a href="#supervet">SuperVet</a>
+      <a href="#studio">Studio</a>
+      <a href="#edutech">Apps</a>
+      <a href="#ai">AI</a>
+      <a href="#links">Links</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- ===== Tier 0 — Hero + transformer map ===== -->
+    <section class="hero" aria-labelledby="hero-name">
+      <div class="hero__top">
+        <img class="hero__photo" src="assets/eugene.jpg" width="460" height="460"
+             alt="Eugene Gouws" />
+        <div class="hero__intro">
+          <h1 class="hero__name" id="hero-name">Eugene&nbsp;Gouws</h1>
+          <p class="hero__role">Maths, music, and the software in between</p>
+          <p class="hero__lede">
+            Four careers that don&rsquo;t usually meet &mdash; and the one way of working that runs
+            through all of them.
+          </p>
+        </div>
+      </div>
+
+      <!-- Signature element: transformer-style translation map (built by js/nodemap.js) -->
+      <figure class="hero__map" aria-label="A transformer-style diagram: four past domains on the left (Mathematics, Brand Management, Teaching, Audio Engineering) feed forward through three labelled hidden layers — Data Driven, User Convenience, Corporate Governance — and resolve into three outputs: Transferable Experience, Problem Solving, Digital Fluency.">
+        <div id="nodemap" class="nodemap"></div>
+      </figure>
+    </section>
+
+    <!-- ===== Intro narrative ===== -->
+    <section class="story" id="intro" aria-labelledby="intro-h">
+      <div class="story__inner">
+        <h2 class="story__title" id="intro-h">I didn&rsquo;t set out to be a problem-solver.</h2>
+        <p>
+          I set out to be a performer &mdash; singing with an a cappella group called D7, chasing gigs
+          anywhere from Rocking the Daisies to weddings. Somewhere along the way real life had other
+          plans, and I found myself crisscrossing the country instead, repping dog food for a living.
+        </p>
+        <p>
+          When my daughter was born, the road life gave way to something steadier. I relocated to East
+          London, where &mdash; almost by accident &mdash; a teaching job found me before I&rsquo;d
+          thought to look for one, drawing on a music background I didn&rsquo;t expect to use
+          professionally again. What followed was a slow drift into mathematics and computer science,
+          and the slow realisation that I&rsquo;d been solving the same kind of problem all along, just
+          never twice under the same name.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Case study: SuperVet (Data Driven) ===== -->
+    <section class="case" id="supervet" aria-labelledby="supervet-h">
+      <div class="story__inner">
+        <p class="story__kicker">The Dog Food Years &middot; Data driven</p>
+        <h2 class="story__title" id="supervet-h">A branding detour that turned into a numbers problem.</h2>
+        <p>
+          SuperVet was my dad&rsquo;s venture, started with a friend of his. When they needed a rep, I
+          took it on &mdash; the next stretch on the road, visiting hundreds of vets across the country,
+          and getting good enough at it that sales grew significantly. Along the way I redesigned the
+          packaging myself, a small detour into branding that helped drive the food&rsquo;s growing
+          popularity. The product was something to be proud of selling: its regulatory standards were
+          stricter than those applied to certain baby foods &mdash; which sounds like a joke until you
+          check it and realise it isn&rsquo;t.
+        </p>
+        <p>
+          Growing sales hid a quieter problem. The bag printer&rsquo;s minimum order quantities
+          didn&rsquo;t match how fast each variant actually sold &mdash; so a single print run could lock
+          up years of stock in the slow movers. The chart traces sell-through against those minimums.
+        </p>
+      </div>
+      <figure class="case__exp">
+        <div id="supervet-chart" class="exp-mount" data-exp="supervet" aria-label="SuperVet sales forecast and stock-depletion chart">
+          <span class="exp-mount__tag">SuperVet forecast &amp; depletion — interactive chart loads here</span>
+        </div>
+      </figure>
+    </section>
+
+    <!-- ===== Case study: Studio (Outcome-based PM) ===== -->
+    <section class="case" id="studio" aria-labelledby="studio-h">
+      <div class="story__inner">
+        <p class="story__kicker">Music &middot; Outcome-based project management</p>
+        <h2 class="story__title" id="studio-h">From critical listening to a room built for it.</h2>
+        <p>
+          Long before any of that, my music career started at twelve, at the Drakensberg Boys&rsquo;
+          Choir, where I learned discipline less as a rule and more as a kind of group physics: everyone
+          solving the same problem at the same time. That sense of synergy took me around the world,
+          from Spain to Japan to Norway.
+        </p>
+        <p>
+          My Master&rsquo;s pulled the focus in tighter, into the technical side of music &mdash;
+          critical listening, recording, mixing, and the unglamorous discipline of signal flow, which
+          I&rsquo;d later discover has more in common with programming logic than I expected. That
+          grounding sparked an interest in acoustics: recording rock bands in garages, learning that the
+          practical world rarely matches the textbook ideal. That gap eventually pushed me to design a
+          proper studio at my current school &mdash; including the bass traps below, where a low
+          frequency is caught, reflected, and absorbed before it can stand as a room mode.
+        </p>
+      </div>
+      <figure class="case__exp">
+        <div id="studio-video" class="exp-mount" data-exp="studio" aria-label="Bass-trap acoustics animation: a low-frequency wave absorbed in a corner trap, shown alongside its frequency spectrum attenuating">
+          <span class="exp-mount__tag">Bass-trap absorption → Fourier spectrum — animation loads here</span>
+        </div>
+      </figure>
+    </section>
+
+    <!-- ===== Case study: Apps (User Convenience) ===== -->
+    <section class="case" id="edutech" aria-labelledby="edutech-h">
+      <div class="story__inner">
+        <p class="story__kicker">Teaching and Coding &middot; User convenience</p>
+        <h2 class="story__title" id="edutech-h">A gap that looked administrative and felt structural.</h2>
+        <p>
+          Music wasn&rsquo;t the only thing that followed me into the classroom. I&rsquo;ve taught at two
+          schools now, both for long stretches, covering mathematics and music in equal measure &mdash;
+          but it was always mathematics where my heart sat, for the simple reason that it never stops
+          asking you to solve something.
+        </p>
+        <p>
+          Years inside the school system showed me a gap nobody seemed to be fixing &mdash; the kind of
+          problem that looks administrative from the outside and feels structural from the inside, the
+          same kind I&rsquo;d been solving in sales figures and choir formations without ever calling it
+          that. The information needed to solve it lives scattered across different places, hard to make
+          sense of and harder to see in context. So once I&rsquo;d finished my degree in mathematics and
+          computer science, I built for convenience &mdash; two tools below.
+        </p>
+      </div>
+      <div class="case__exp case__exp--apps">
+        <div id="timeview-demo" class="exp-mount" data-exp="timeview" aria-label="TimeView timetable explorer demo">
+          <span class="exp-mount__tag">TimeView — timetable explorer demo loads here</span>
+        </div>
+        <div id="kitchen-demo" class="exp-mount" data-exp="kitchen" aria-label="Kitchen Costings recipe-costing demo">
+          <span class="exp-mount__tag">Kitchen Costings — recipe-costing demo loads here</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== And Everything Else ===== -->
+    <section class="story" id="everything" aria-labelledby="everything-h">
+      <div class="story__inner">
+        <p class="story__kicker">And everything else</p>
+        <h2 class="story__title" id="everything-h">Growth as another problem worth solving.</h2>
+        <p>
+          Outside all that, I&rsquo;m a parent of three &mdash; its own full-time job before the actual
+          full-time job even starts. Between teaching during the day, extra maths and music lessons after
+          school, and singing in a choir, the days run long and the late nights run later: mostly
+          planning, problem-solving, and somehow keeping everyone mostly happy at the same time.
+        </p>
+        <p>
+          None of it has made me wary of work or commitment &mdash; if anything it&rsquo;s done the
+          opposite. I keep taking on new things to learn, not because I have spare time for them, but
+          because growing in new directions is, in its own way, just another problem worth solving.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== AI stance ===== -->
+    <section class="case" id="ai" aria-labelledby="ai-h">
+      <div class="story__inner">
+        <p class="story__kicker">Digital &amp; AI fluency</p>
+        <h2 class="story__title" id="ai-h">A tool to think with — not a substitute for thinking.</h2>
+        <p>
+          AI is at its worst when it&rsquo;s used to outsource genuine intelligence &mdash; when it
+          replaces the creativity and understanding that the work is actually for. It&rsquo;s at its best
+          as a collaborator: something to argue with, accelerate against, and hold to your own judgment.
+          The line between the two is the whole point.
+        </p>
+      </div>
+      <figure class="case__exp">
+        <div id="ai-infographic" class="exp-mount" data-exp="ai" aria-label="Infographic contrasting AI as outsourcing versus AI as collaboration">
+          <span class="exp-mount__tag">AI stance infographic loads here</span>
+        </div>
+      </figure>
+    </section>
+
+    <!-- ===== Links / CV ===== -->
+    <section class="links" id="links" aria-labelledby="links-h">
+      <div class="story__inner">
+        <p class="story__kicker">Elsewhere</p>
+        <h2 class="story__title" id="links-h">Links &amp; CV</h2>
+        <ul class="links__list">
+          <li><a href="https://github.com/EugeneGouws" rel="me">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/eugenegouws" rel="me">LinkedIn</a></li>
+          <li><a href="#" data-pending="timeview">TimeView (live — link pending)</a></li>
+          <li><a href="#" data-pending="kitchen">Kitchen Costings (live — link pending)</a></li>
+          <li><a href="#" data-pending="cv">Download CV (pending)</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>Eugene Gouws</span>
+    <span class="foot__mono">github.com/EugeneGouws · linkedin.com/in/eugenegouws</span>
+  </footer>
+
+  <script src="js/nodemap.js" defer></script>
+</body>
+</html>

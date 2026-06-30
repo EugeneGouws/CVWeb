@@ -1,0 +1,77 @@
+/* ============================================================
+   tokens.css — single source of truth for palette + type scale.
+   LinkedIn-familiar light theme (per Eugene): warm-gray canvas,
+   white cards, LinkedIn blue accent, near-black text, Source Sans 3.
+   Components consume these vars; none redefine colour or font size.
+   Integration contract: see handoff.md.
+   ============================================================ */
+
+/* ---- Font (self-hosted woff2, offline-safe) ------------------ */
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("../assets/fonts/sourcesans3-var.woff2") format("woff2");
+  font-weight: 400 700;          /* variable wght axis */
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ---- Palette (LinkedIn-familiar) ---- */
+  --bg:          #F4F2EE;   /* page canvas — LinkedIn warm gray */
+  --surface:     #FFFFFF;   /* cards, nav, panels */
+  --surface-alt: #EDE9E3;   /* subtle raised fill / hover */
+  --line:        #DCD9D3;   /* hairline borders, grid lines */
+  --text:        #1B1B1B;   /* primary text (~rgba(0,0,0,.9)) */
+  --text-dim:    #5E5E5E;   /* secondary text, captions */
+  --brand:       #0A66C2;   /* LinkedIn blue — accent, active edges */
+  --brand-deep:  #004182;   /* blue hover / pressed */
+  --brand-tint:  #E8F0FA;   /* pale blue wash for highlights */
+  --green:       #057642;   /* LinkedIn green — sparing positive accent */
+
+  /* ---- Type family ---- */
+  --font-sans: "Source Sans 3", -apple-system, system-ui, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-sans);   /* same family; weight carries hierarchy */
+  --font-body:    var(--font-sans);
+  --font-mono:    var(--font-sans);   /* alias kept for contract; no mono in this theme */
+
+  /* ---- Type scale (1.25 major-third, 16px base) ---- */
+  --t-xs:   0.75rem;   /* 12 — eyebrows, ticks */
+  --t-sm:   0.875rem;  /* 14 — captions, nav */
+  --t-base: 1rem;      /* 16 — body */
+  --t-md:   1.25rem;   /* 20 — lead body */
+  --t-lg:   1.953rem;  /* 31 — section titles */
+  --t-xl:   3.052rem;  /* 49 — sub-hero */
+  --t-2xl:  4.209rem;  /* 67 — hero name */
+
+  --lh-tight: 1.08;
+  --lh-snug:  1.3;
+  --lh-body:  1.6;
+
+  --tracking-eyebrow: 0.08em;   /* spaced uppercase labels */
+  --tracking-tight: -0.015em;   /* large headings run slightly tight */
+
+  /* ---- Spacing (8px rhythm) ---- */
+  --s-1: 0.5rem;
+  --s-2: 1rem;
+  --s-3: 1.5rem;
+  --s-4: 2rem;
+  --s-5: 3rem;
+  --s-6: 4.5rem;
+  --s-7: 7rem;
+
+  /* ---- Layout ---- */
+  --maxw: 1180px;
+  --maxw-wide: 1300px;     /* hero + transformer map run wider */
+  --nav-h: 60px;
+  --radius: 8px;          /* LinkedIn card radius */
+  --shadow: 0 1px 3px rgba(0,0,0,0.10), 0 1px 2px rgba(0,0,0,0.06);
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur:  0.45s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur: 0.001s; }
+}

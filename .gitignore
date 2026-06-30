@@ -1,0 +1,25 @@
+# Default ignored files
+/shelf/
+/.idea/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Ignored default folder with query files
+/queries/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+
+#ignore md files (local working memory — see claude.md "Repo Conventions")
+claude.md
+handoff.md
+plan.md
+
+# WebStorm project metadata
+.idea/
+
+# Source material — local only, not shipped (real business data + narrative source)
+data/
+
+# OS cruft
+.DS_Store
+Thumbs.db
