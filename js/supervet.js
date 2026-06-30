@@ -22,13 +22,14 @@
     // size encoded by shade + dash (20kg = brand shade solid, 8kg = deeper dashed).
     var V = [
       { name: "Adult 20kg",     start: 120, months: 6.42,  color: "#4FE048", dash: false },
-      { name: "Adult 8kg",      start: 32,  months: 12.09, color: "#2F9E3F", dash: true  },
+      { name: "Adult 8kg",      start: 32,  months: 12.09, color: "#79C96A", dash: true  },
       { name: "LB Puppy 20kg",  start: 60,  months: 21.33, color: "#E8559E", dash: false },
-      { name: "LB Puppy 8kg",   start: 32,  months: 51.95, color: "#B83A77", dash: true  },
-      { name: "Puppy 8kg",      start: 32,  months: 34.68, color: "#2E73E8", dash: false }
+      { name: "LB Puppy 8kg",   start: 32,  months: 51.95, color: "#F09AC6", dash: true  },
+      { name: "Puppy 8kg",      start: 32,  months: 34.68, color: "#4F90F2", dash: false }
     ];
 
-    var ink = "#1B1B1B", dim = "#5E5E5E", grid = "rgba(0,0,0,0.07)";
+    // dark-navy canvas: light text/grid
+    var ink = "#EDEDE6", dim = "#AEB4D0", grid = "rgba(237,237,230,0.10)";
 
     var datasets = V.map(function (v) {
       return {
