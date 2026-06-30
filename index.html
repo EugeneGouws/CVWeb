@@ -113,9 +113,15 @@
         </p>
       </div>
       <figure class="case__exp">
-        <div id="studio-video" class="exp-mount" data-exp="studio" aria-label="Bass-trap acoustics animation: a low-frequency wave absorbed in a corner trap, shown alongside its frequency spectrum attenuating">
-          <span class="exp-mount__tag">Bass-trap absorption → Fourier spectrum — animation loads here</span>
-        </div>
+        <video id="studio-video" class="studio-video" autoplay muted loop playsinline
+               preload="metadata" poster="assets/studio_poster.jpg"
+               aria-label="Animation: a low-frequency room mode caught in a corner bass trap, its standing wave decaying as the rockwool absorbs it, with the matching peak in the frequency spectrum attenuating in step.">
+          <source src="assets/studio.mp4" type="video/mp4" />
+        </video>
+        <figcaption class="studio-cap">
+          A room mode caught in a corner trap — the standing wave (left) and its spectral peak (right)
+          attenuate together as the rockwool absorbs the energy.
+        </figcaption>
       </figure>
     </section>
 
@@ -277,6 +283,7 @@
     <span class="foot__mono">github.com/EugeneGouws · linkedin.com/in/eugenegouws</span>
   </footer>
 
+  <script src="js/media.js" defer></script>
   <script src="js/nodemap.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
   <script src="js/supervet.js" defer></script>

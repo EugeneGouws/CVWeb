@@ -290,6 +290,23 @@ a { color: inherit; }
 }
 .exp-caption strong { color: var(--text); }
 
+/* ---- Studio acoustics video ---- */
+.studio-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: #0E1330;
+}
+.studio-cap {
+  margin: var(--s-3) 0 0;
+  color: var(--text-dim);
+  font-size: var(--t-sm);
+  line-height: var(--lh-snug);
+  max-width: 72ch;
+}
+
 /* ---- App demo cards (launch + describe; live apps, read-only) ---- */
 .case__exp--apps { align-items: start; }
 .demo {

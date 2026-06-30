@@ -20,6 +20,11 @@ plan.md
 # Source material — local only, not shipped (real business data + narrative source)
 data/
 
+# Build tooling + render output (heavy, local-only). Shipped mp4 lives in assets/.
+tools/
+media/
+__pycache__/
+
 # OS cruft
 .DS_Store
 Thumbs.db
