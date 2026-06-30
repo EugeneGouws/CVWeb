@@ -290,6 +290,76 @@ a { color: inherit; }
 }
 .exp-caption strong { color: var(--text); }
 
+/* ---- App demo cards (launch + describe; live apps, read-only) ---- */
+.case__exp--apps { align-items: start; }
+.demo {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.demo__media {
+  display: block;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-alt);
+}
+.demo__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1280 / 760;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform var(--dur) var(--ease);
+}
+.demo__media:hover img { transform: scale(1.015); }
+.demo__rail { padding: var(--s-4); }
+.demo__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--t-md);
+  margin: 0 0 var(--s-1);
+  color: var(--text);
+}
+.demo__blurb { margin: 0 0 var(--s-2); color: #333; }
+.demo__points {
+  list-style: none;
+  margin: 0 0 var(--s-3);
+  padding: 0;
+}
+.demo__points li {
+  position: relative;
+  padding-left: var(--s-3);
+  margin-bottom: var(--s-1);
+  font-size: var(--t-sm);
+  color: var(--text-dim);
+}
+.demo__points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand);
+}
+.btn {
+  display: inline-block;
+  background: var(--brand);
+  color: #fff;
+  font-weight: 600;
+  font-size: var(--t-sm);
+  text-decoration: none;
+  padding: var(--s-1) var(--s-3);
+  border-radius: 999px;
+  transition: background var(--dur) var(--ease);
+}
+.btn:hover { background: var(--brand-deep); }
+
 /* ---- Links list ---- */
 .links__list {
   list-style: none;

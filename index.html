@@ -140,12 +140,51 @@
         </p>
       </div>
       <div class="case__exp case__exp--apps">
-        <div id="timeview-demo" class="exp-mount" data-exp="timeview" aria-label="TimeView timetable explorer demo">
-          <span class="exp-mount__tag">TimeView — timetable explorer demo loads here</span>
-        </div>
-        <div id="kitchen-demo" class="exp-mount" data-exp="kitchen" aria-label="Kitchen Costings recipe-costing demo">
-          <span class="exp-mount__tag">Kitchen Costings — recipe-costing demo loads here</span>
-        </div>
+        <article class="demo" id="timeview-demo">
+          <a class="demo__media" href="https://timeview.egouws-music.workers.dev/" target="_blank" rel="noopener"
+             aria-label="Open TimeView in a new tab">
+            <img src="assets/shots/timeview.png" width="1280" height="860"
+                 alt="TimeView — timetable explorer" loading="lazy" />
+          </a>
+          <div class="demo__rail">
+            <h3 class="demo__name">TimeView</h3>
+            <p class="demo__blurb">
+              A school&rsquo;s whole timetable from one JSON file &mdash; browse by teacher, student or
+              subject, no server, nothing leaving your machine.
+            </p>
+            <ul class="demo__points">
+              <li>Search a teacher or student to trace their week</li>
+              <li>Cascade menus drill from a class into its roster</li>
+              <li>Switch views: any teacher&rsquo;s, student&rsquo;s or subject&rsquo;s full week</li>
+            </ul>
+            <a class="btn" href="https://timeview.egouws-music.workers.dev/" target="_blank" rel="noopener">
+              Open TimeView <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="demo" id="kitchen-demo">
+          <a class="demo__media" href="https://kitchencosting.egouws-music.workers.dev/" target="_blank" rel="noopener"
+             aria-label="Open Kitchen Costings in a new tab">
+            <img src="assets/shots/kitchen.png" width="1280" height="860"
+                 alt="Kitchen Costings — recipe costing" loading="lazy" />
+          </a>
+          <div class="demo__rail">
+            <h3 class="demo__name">Kitchen Costings</h3>
+            <p class="demo__blurb">
+              Recipe costing for home bakers &mdash; paste a recipe, it parses the ingredients, prices
+              them against a pantry, and works out cost per serving. Local-only, no accounts.
+            </p>
+            <ul class="demo__points">
+              <li>Paste or drop a recipe &mdash; auto-parsed into ingredients</li>
+              <li>Pantry prices drive live cost-per-serving and markup</li>
+              <li>Traffic-light status flags any missing price</li>
+            </ul>
+            <a class="btn" href="https://kitchencosting.egouws-music.workers.dev/" target="_blank" rel="noopener">
+              Open Kitchen Costings <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -193,11 +232,11 @@
         <p class="story__kicker">Elsewhere</p>
         <h2 class="story__title" id="links-h">Links &amp; CV</h2>
         <ul class="links__list">
-          <li><a href="https://github.com/EugeneGouws" rel="me">GitHub</a></li>
-          <li><a href="https://linkedin.com/in/eugenegouws" rel="me">LinkedIn</a></li>
-          <li><a href="#" data-pending="timeview">TimeView (live — link pending)</a></li>
-          <li><a href="#" data-pending="kitchen">Kitchen Costings (live — link pending)</a></li>
-          <li><a href="#" data-pending="cv">Download CV (pending)</a></li>
+          <li><a href="https://github.com/EugeneGouws" target="_blank" rel="me noopener">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/eugenegouws" target="_blank" rel="me noopener">LinkedIn</a></li>
+          <li><a href="https://timeview.egouws-music.workers.dev/" target="_blank" rel="noopener">TimeView (live)</a></li>
+          <li><a href="https://kitchencosting.egouws-music.workers.dev/" target="_blank" rel="noopener">Kitchen Costings (live)</a></li>
+          <li><a href="assets/Eugene_Gouws_CV.pdf" download>Download CV (PDF)</a></li>
         </ul>
       </div>
     </section>
