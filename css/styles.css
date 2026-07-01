@@ -456,5 +456,8 @@ a { color: inherit; }
 @media (max-width: 480px) {
   .nav { padding-inline: var(--s-2); }
   .hero, .panels, .foot { padding-inline: var(--s-2); }
-  .nav__links a:nth-child(n+4) { display: none; }
+  /* all 5 links fit one line: drop the mark, shrink type, spread evenly */
+  .nav__mark { display: none; }
+  .nav__links { flex: 1; justify-content: space-between; gap: 6px; }
+  .nav__links a { font-size: 11px; }
 }
