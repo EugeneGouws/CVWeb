@@ -17,49 +17,45 @@
       <a href="#supervet">SuperVet</a>
       <a href="#studio">Studio</a>
       <a href="#edutech">Apps</a>
-      <a href="#ai">AI</a>
       <a href="#links">Links</a>
     </nav>
   </header>
 
   <main id="top">
-    <!-- ===== Tier 0 — Hero + transformer map ===== -->
-    <section class="hero" aria-labelledby="hero-name">
+    <!-- ===== Tier 0 — Hero + intro narrative + transformer map ===== -->
+    <section class="hero" id="intro" aria-labelledby="hero-name">
       <div class="hero__top">
         <img class="hero__photo" src="assets/eugene.jpg" width="460" height="460"
              alt="Eugene Gouws" />
         <div class="hero__intro">
           <h1 class="hero__name" id="hero-name">Eugene&nbsp;Gouws</h1>
           <p class="hero__role">Maths, music, and the software in between</p>
-          <p class="hero__lede" id="hero-lede">
-            I didn&rsquo;t set out to be a problem-solver.
-          </p>
         </div>
       </div>
 
+      <!-- Intro narrative — sits above the map so the story reads before the diagram -->
+      <div class="story__inner hero__narrative">
+        <p>
+          I didn&rsquo;t set out to be a problem solver.
+        </p>
+        <p>
+          I set out to be a performer &mdash; singing with an a cappella group called D7, gigging
+          anywhere from Rocking the Daisies to weddings. Real life had other plans; I ended up
+          crisscrossing the country repping dog food instead.
+        </p>
+        <p>
+          When my daughter was born, the road gave way to something steadier: a teaching job in East
+          London found me before I went looking, drawing on a music background I didn&rsquo;t expect to
+          use again. What followed was a slow drift into mathematics and computer science &mdash; the
+          same problem, solved again, never twice under the same name.
+        </p>
+      </div>
+
       <!-- Signature element: transformer-style translation map (built by js/nodemap.js) -->
+      <!-- FLAG for Eugene: superset graph node/edge/path logic + data to be reworked per his brief -->
       <figure class="hero__map" aria-label="A transformer-style diagram: four past domains on the left (Mathematics, Brand Management, Teaching, Audio Engineering) feed forward through three labelled hidden layers — Data Driven, User Convenience, Corporate Governance — and resolve into three outputs: Transferable Experience, Problem Solving, Digital Fluency.">
         <div id="nodemap" class="nodemap"></div>
       </figure>
-    </section>
-
-    <!-- ===== Intro narrative ===== -->
-    <section class="story" id="intro" aria-label="Introduction">
-      <div class="story__inner">
-        <p>
-          I set out to be a performer &mdash; singing with an a cappella group called D7, chasing gigs
-          anywhere from Rocking the Daisies to weddings. Somewhere along the way real life had other
-          plans, and I found myself crisscrossing the country instead, repping dog food for a living.
-        </p>
-        <p>
-          When my daughter was born, the road life gave way to something steadier. I relocated to East
-          London, where &mdash; almost by accident &mdash; a teaching job found me before I&rsquo;d
-          thought to look for one, drawing on a music background I didn&rsquo;t expect to use
-          professionally again. What followed was a slow drift into mathematics and computer science,
-          and the slow realisation that I&rsquo;d been solving the same kind of problem all along, just
-          never twice under the same name.
-        </p>
-      </div>
     </section>
 
     <!-- ===== Case study: SuperVet (Data Driven) ===== -->
@@ -69,17 +65,16 @@
         <h2 class="story__title" id="supervet-h">A branding detour that turned into a numbers problem.</h2>
         <p>
           SuperVet was my dad&rsquo;s venture, started with a friend of his. When they needed a rep, I
-          took it on &mdash; the next stretch on the road, visiting hundreds of vets across the country,
-          and getting good enough at it that sales grew significantly. Along the way I redesigned the
-          packaging myself, a small detour into branding that helped drive the food&rsquo;s growing
-          popularity. The product was something to be proud of selling: its regulatory standards were
-          stricter than those applied to certain baby foods &mdash; which sounds like a joke until you
-          check it and realise it isn&rsquo;t.
+          took it on &mdash; visiting hundreds of vets across the country, and getting good enough that
+          sales grew significantly. Along the way I redesigned the packaging myself, a detour into
+          branding that helped drive the food&rsquo;s popularity &mdash; a product worth being proud of:
+          its regulatory standards were stricter than some baby foods&rsquo;, which sounds like a joke
+          until you check it.
         </p>
         <p>
-          Growing sales hid a quieter problem. The bag printer&rsquo;s minimum order quantities
-          didn&rsquo;t match how fast each variant actually sold &mdash; so a single print run could lock
-          up years of stock in the slow movers. The chart traces sell-through against those minimums.
+          Growing sales hid a quieter problem: the bag printer&rsquo;s minimum order quantities
+          didn&rsquo;t match how fast each variant sold, so a single print run could lock up years of
+          stock in the slow movers. The chart traces sell-through against those minimums.
         </p>
       </div>
       <figure class="case__exp">
@@ -95,30 +90,29 @@
         <p class="story__kicker">Music &middot; Outcome-based project management</p>
         <h2 class="story__title" id="studio-h">From critical listening to a room built for it.</h2>
         <p>
-          Long before any of that, my music career started at twelve, at the Drakensberg Boys&rsquo;
-          Choir, where I learned discipline less as a rule and more as a kind of group physics: everyone
-          solving the same problem at the same time. That sense of synergy took me around the world,
-          from Spain to Japan to Norway.
+          My music career started at twelve, at the Drakensberg Boys&rsquo; Choir, where I learned
+          discipline less as a rule than a kind of group physics: everyone solving the same problem at
+          once. That synergy took me from Spain to Japan to Norway.
         </p>
         <p>
-          My Master&rsquo;s pulled the focus in tighter, into the technical side of music &mdash;
-          critical listening, recording, mixing, and the unglamorous discipline of signal flow, which
-          I&rsquo;d later discover has more in common with programming logic than I expected. That
-          grounding sparked an interest in acoustics: recording rock bands in garages, learning that the
-          practical world rarely matches the textbook ideal. That gap eventually pushed me to design a
-          proper studio at my current school &mdash; including the bass traps below, where a low
-          frequency is caught, reflected, and absorbed before it can stand as a room mode.
+          My Master&rsquo;s pulled the focus tighter, into music&rsquo;s technical side &mdash; critical
+          listening, recording, mixing, signal flow, which turned out to share more with programming
+          logic than expected. That sparked an interest in acoustics: garage sessions taught me the
+          practical world rarely matches the textbook ideal, which eventually led me to design a proper
+          studio at my current school &mdash; including the bass traps below, where a low frequency is
+          caught, reflected, and absorbed before it can stand as a room mode.
         </p>
       </div>
       <figure class="case__exp">
         <video id="studio-video" class="studio-video" autoplay muted loop playsinline
                preload="metadata" poster="assets/studio_poster.jpg"
-               aria-label="Animation: a low-frequency room mode caught in a corner bass trap, its standing wave decaying as the rockwool absorbs it, with the matching peak in the frequency spectrum attenuating in step.">
+               aria-label="Animation: three acoustic treatments compared. A corner bass trap slows and fades a travelling wave, attenuating both a low and a high frequency together. A quarter-wave panel absorber, its air gap tuned to one wavelength, only attenuates the high frequency. A quadratic-residue diffuser scatters the wave into many directions instead of absorbing it, halving both spikes while the broadband floor rises to meet them.">
           <source src="assets/studio.mp4" type="video/mp4" />
         </video>
         <figcaption class="studio-cap">
-          A room mode caught in a corner trap — the standing wave (left) and its spectral peak (right)
-          attenuate together as the rockwool absorbs the energy.
+          Three treatments, same room mode: a corner bass trap catches both a low and high frequency;
+          a quarter-wave panel absorber (gap tuned to one wavelength) catches only the high; a
+          quadratic-residue diffuser scatters both rather than absorbing them.
         </figcaption>
       </figure>
     </section>
@@ -129,18 +123,19 @@
         <p class="story__kicker">Teaching and Coding &middot; User convenience</p>
         <h2 class="story__title" id="edutech-h">A gap that looked administrative and felt structural.</h2>
         <p>
-          Music wasn&rsquo;t the only thing that followed me into the classroom. I&rsquo;ve taught at two
-          schools now, both for long stretches, covering mathematics and music in equal measure &mdash;
-          but it was always mathematics where my heart sat, for the simple reason that it never stops
-          asking you to solve something.
+          Music followed me into the classroom too. I&rsquo;ve taught at two schools, long stretches
+          each, covering maths and music equally &mdash; but maths was always where my heart sat: it
+          never stops asking you to solve something.
         </p>
         <p>
-          Years inside the school system showed me a gap nobody seemed to be fixing &mdash; the kind of
-          problem that looks administrative from the outside and feels structural from the inside, the
-          same kind I&rsquo;d been solving in sales figures and choir formations without ever calling it
-          that. The information needed to solve it lives scattered across different places, hard to make
-          sense of and harder to see in context. So once I&rsquo;d finished my degree in mathematics and
-          computer science, I built for convenience &mdash; two tools below.
+          Years in the school system showed me a gap nobody was fixing &mdash; a problem that looks
+          administrative from outside and structural from inside, the same kind I&rsquo;d been solving in
+          sales figures and choir formations without ever naming it. The information needed to solve it
+          lives scattered across different places, hard to see in context. Once I&rsquo;d finished my
+          degree in mathematics and computer science, I built for convenience &mdash; starting with
+          TimeView. The second tool, Kitchen Costings, grew out of the same instinct applied closer to
+          home: my mom runs a catering side hustle, and pricing a menu by hand was eating time she didn&rsquo;t
+          have, so I built her something to do it for her.
         </p>
       </div>
       <div class="case__exp case__exp--apps">
@@ -198,78 +193,26 @@
         <p class="story__kicker">And everything else</p>
         <h2 class="story__title" id="everything-h">Growth as another problem worth solving.</h2>
         <p>
-          Outside all that, I&rsquo;m a parent of three &mdash; its own full-time job before the actual
-          full-time job even starts. Between teaching during the day, extra maths and music lessons after
-          school, and singing in a choir, the days run long and the late nights run later: mostly
-          planning, problem-solving, and somehow keeping everyone mostly happy at the same time.
+          Outside all that, I&rsquo;m a parent of three &mdash; a full-time job before the actual one
+          starts. Between teaching, after-school lessons, and choir, the days run long: mostly planning,
+          problem-solving, and keeping everyone mostly happy.
         </p>
         <p>
-          None of it has made me wary of work or commitment &mdash; if anything it&rsquo;s done the
-          opposite. I keep taking on new things to learn, not because I have spare time for them, but
-          because growing in new directions is, in its own way, just another problem worth solving.
+          If anything, it&rsquo;s made me hungrier for commitment. I keep taking on new things to learn
+          &mdash; not for spare time I don&rsquo;t have, but because growing in new directions is just
+          another problem worth solving.
         </p>
       </div>
-    </section>
-
-    <!-- ===== AI stance ===== -->
-    <section class="case" id="ai" aria-labelledby="ai-h">
-      <div class="story__inner">
-        <p class="story__kicker">Digital &amp; AI fluency</p>
-        <h2 class="story__title" id="ai-h">A tool to think with — not a substitute for thinking.</h2>
-        <p>
-          AI is at its worst when it&rsquo;s used to outsource genuine intelligence &mdash; when it
-          replaces the creativity and understanding that the work is actually for. It&rsquo;s at its best
-          as a collaborator: something to argue with, accelerate against, and hold to your own judgment.
-          The line between the two is the whole point.
-        </p>
-      </div>
-      <figure class="case__exp">
-        <div id="ai-infographic" class="ai-graphic" aria-label="A contrast: AI as outsourcing thinking versus AI as a collaborator under human judgment">
-          <div class="ai-split">
-            <section class="ai-col ai-col--bad" aria-labelledby="ai-bad-h">
-              <span class="ai-col__tag">Outsourcing</span>
-              <h3 class="ai-col__title" id="ai-bad-h">AI <em>instead of</em> thinking</h3>
-              <ul class="ai-col__list">
-                <li>Hand it the judgment call and the muscle wastes</li>
-                <li>Creativity flattens to the average of its training data</li>
-                <li>Understanding gets skipped &mdash; you keep the answer, lose the why</li>
-              </ul>
-            </section>
-
-            <div class="ai-pivot" aria-hidden="true">
-              <span class="ai-pivot__line"></span>
-              <span class="ai-pivot__dot">vs</span>
-              <span class="ai-pivot__line"></span>
-            </div>
-
-            <section class="ai-col ai-col--good" aria-labelledby="ai-good-h">
-              <span class="ai-col__tag">Collaboration</span>
-              <h3 class="ai-col__title" id="ai-good-h">AI <em>to think</em> with</h3>
-              <ul class="ai-col__list">
-                <li>A sparring partner that surfaces what you missed</li>
-                <li>Speed on the mechanical, so judgment goes to what matters</li>
-                <li>Held to your standard &mdash; you stay the author</li>
-              </ul>
-            </section>
-          </div>
-          <p class="ai-graphic__foot">
-            The difference isn&rsquo;t the tool &mdash; an LLM that predicts text and a model that
-            learns a pattern are both just tools. It&rsquo;s whether you keep doing the thinking.
-          </p>
-        </div>
-      </figure>
     </section>
 
     <!-- ===== Links / CV ===== -->
-    <section class="links" id="links" aria-labelledby="links-h">
+    <section class="links" id="links" aria-label="Links and CV">
       <div class="story__inner">
-        <p class="story__kicker">Elsewhere</p>
-        <h2 class="story__title" id="links-h">Links &amp; CV</h2>
         <ul class="links__list">
           <li><a href="https://github.com/EugeneGouws" target="_blank" rel="me noopener">GitHub</a></li>
           <li><a href="https://linkedin.com/in/eugenegouws" target="_blank" rel="me noopener">LinkedIn</a></li>
-          <li><a href="https://timeview.egouws-music.workers.dev/" target="_blank" rel="noopener">TimeView (live)</a></li>
-          <li><a href="https://kitchencosting.egouws-music.workers.dev/" target="_blank" rel="noopener">Kitchen Costings (live)</a></li>
+          <li><a href="https://timeview.egouws-music.workers.dev/" target="_blank" rel="noopener">TimeView</a></li>
+          <li><a href="https://kitchencosting.egouws-music.workers.dev/" target="_blank" rel="noopener">Kitchen Costings</a></li>
           <li><a href="assets/Eugene_Gouws_CV.pdf" download>Download CV (PDF)</a></li>
         </ul>
       </div>
@@ -278,7 +221,6 @@
 
   <footer class="foot">
     <span>Eugene Gouws</span>
-    <span class="foot__mono">github.com/EugeneGouws · linkedin.com/in/eugenegouws</span>
   </footer>
 
   <script src="js/media.js" defer></script>

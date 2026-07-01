@@ -2,11 +2,13 @@
    nodemap.js — the signature element.
    A 3Blue1Brown-style transformer diagram: four past domains (left)
    feed forward through three labelled "black-box" hidden layers
-   — Data Driven · User Convenience · Corporate Governance — and
-   resolve into one output, "Infinite Solutions". Dense wiring carries
-   travelling pulses (signals); hovering a domain or a layer heading
-   traces the thought; headings deep-link to their case-study panel.
-   Dependency-free.
+   — Data Driven · User Convenience · Corporate Governance — into
+   three outputs. Every node is wired to every node in the next
+   layer (dense mesh), straight wires. Hovering ANY node — input,
+   hidden dot, output, or a column heading — highlights exactly the
+   wires touching it (in both directions) and runs a travelling pulse
+   along just those wires. Column headings still deep-link to their
+   case study. Dependency-free.
    ============================================================ */
 (function () {
   "use strict";
@@ -44,22 +46,57 @@
     { head: "Corporate Governance", target: "#studio"   }
   ];
   var outputs = ["Transferable Experience", "Problem Solving", "Digital Fluency"];
+  var outIndex = {}; outputs.forEach(function (o, i) { outIndex[o] = i; });
+
+  // ---- Curated per-domain traces (1-indexed dot numbers, top to bottom).
+  //      These select specific edges OUT OF the dense mesh below — every
+  //      edge they name already exists as a real wire; hovering an input
+  //      just highlights this particular route through it, all three
+  //      hidden columns, to its own output(s). ----
+  var domains = [
+    { // Mathematics
+      col0: [1, 3, 4, 5],
+      edges01: [[1, 2], [3, 2], [4, 4], [5, 1]],
+      edges12: [[2, 2], [4, 4], [1, 1]],
+      edges2out: [[2, "Digital Fluency"], [2, "Problem Solving"],
+                  [1, "Problem Solving"], [4, "Transferable Experience"]]
+    },
+    { // Brand Management
+      col0: [1, 2, 4, 6],
+      edges01: [[1, 3], [2, 3], [4, 2], [6, 5]],
+      edges12: [[3, 3], [2, 2], [5, 5]],
+      edges2out: [[3, "Transferable Experience"], [2, "Digital Fluency"],
+                  [5, "Digital Fluency"]]
+    },
+    { // Teaching -> Transferable Experience and Problem Solving only
+      col0: [2, 3, 5, 6],
+      edges01: [[2, 1], [3, 1], [5, 3], [6, 3]],
+      edges12: [[1, 1], [3, 3]],
+      edges2out: [[1, "Problem Solving"], [3, "Transferable Experience"]]
+    },
+    { // Audio Engineering -> all three outputs
+      col0: [1, 2, 3, 6],
+      edges01: [[1, 2], [2, 2], [3, 5], [6, 5]],
+      edges12: [[2, 3], [5, 4], [2, 6]],
+      edges2out: [[3, "Problem Solving"], [4, "Transferable Experience"],
+                  [6, "Digital Fluency"]]
+    }
+  ];
 
   function el(name, attrs) {
     var n = document.createElementNS(SVGNS, name);
     for (var k in attrs) n.setAttribute(k, attrs[k]);
     return n;
   }
-  function curve(x1, y1, x2, y2) {
-    var mx = (x1 + x2) / 2;
-    return "M" + x1 + "," + y1 + " C" + mx + "," + y1 + " " + mx + "," + y2 + " " + x2 + "," + y2;
+  function straight(x1, y1, x2, y2) {
+    return "M" + x1 + "," + y1 + " L" + x2 + "," + y2;
   }
 
   var svg = el("svg", { viewBox: "0 0 " + W + " " + H, role: "group",
                         "aria-label": "Transformer-style skills diagram" });
 
   // ---- Node registry + adjacency ----
-  var nodes = {};            // id -> { el, neighbours:Set, edges:[] }
+  var nodes = {};            // id -> { el, edges:[] }
   function reg(id, gel) { nodes[id] = { el: gel, edges: [] }; }
 
   // ---- Build layer point sets ----
@@ -70,13 +107,13 @@
   });
   OUT_ROWS.forEach(function (cy, i) { pts.out.push({ x: OUT_X, cy: cy, id: "out" + i }); });
 
-  // ---- Edges (drawn first, behind everything) ----
+  // ---- Dense mesh: every node wired to every node in the next layer ----
   var edges = [];
   function connect(aList, bList, aRightX, bLeftX) {
     aList.forEach(function (a) {
       bList.forEach(function (b) {
-        var d = curve(aRightX !== undefined ? aRightX : a.x, a.cy,
-                      bLeftX  !== undefined ? bLeftX  : b.x, b.cy);
+        var d = straight(aRightX !== undefined ? aRightX : a.x, a.cy,
+                         bLeftX  !== undefined ? bLeftX  : b.x, b.cy);
         var p = el("path", { class: "nm-edge", d: d });
         var rec = { el: p, from: a.id, to: b.id, d: d };
         edges.push(rec);
@@ -89,16 +126,22 @@
   connect(pts.h[1], pts.h[2]);
   connect(pts.h[2], pts.out, undefined, OUT_X);   // last hidden column -> three outputs
 
-  // ---- Travelling pulses: clone a subset of edges as animated sparks ----
+  // ---- Pulses: every wire gets one, so hovering any node always beams.
+  //      A random subset stays faintly visible at rest for ambience; hover
+  //      forces the relevant subset to full brightness regardless. ----
   var sparkLayer = el("g", { class: "nm-sparks", "aria-hidden": "true" });
   svg.appendChild(sparkLayer);
-  shuffle(edges).slice(0, 52).forEach(function (e) {
+  var idleSet = {};
+  shuffle(edges).slice(0, Math.round(edges.length * 0.28)).forEach(function (e) { idleSet[e.d] = true; });
+  edges.forEach(function (e) {
     var s = el("path", { class: "nm-spark", d: e.d });
+    if (idleSet[e.d]) s.classList.add("nm-spark--idle");
     var len = e.el.getTotalLength();
     s.style.setProperty("--len", len);
     s.style.setProperty("--spd", (1.8 + Math.random() * 1.9).toFixed(2) + "s");
     s.style.setProperty("--dly", "-" + (Math.random() * 3).toFixed(2) + "s");
     sparkLayer.appendChild(s);
+    e.spark = s;
   });
 
   // ---- Hidden-layer dots ----
@@ -111,7 +154,7 @@
   });
 
   // ---- Input domain boxes ----
-  function labelBox(g, x, cy, w, h, lines, opts) {
+  function labelBox(g, x, cy, w, h, lines) {
     g.setAttribute("transform", "translate(" + x + "," + (cy - h / 2) + ")");
     g.appendChild(el("rect", { class: "nm-node-box", width: w, height: h, rx: 6 }));
     var t = el("text", { class: "nm-node-label", x: w / 2, y: h / 2, "text-anchor": "middle" });
@@ -165,37 +208,109 @@
     if (nodes[e.to])   nodes[e.to].edges.push(e);
   });
 
-  // ---- Highlighting ----
+  // ---- Resolve curated domain traces onto real mesh edges ----
+  var edgeByPair = {};
+  edges.forEach(function (e) { edgeByPair[e.from + ">" + e.to] = e; });
+  function findEdge(fromId, toId) { return edgeByPair[fromId + ">" + toId]; }
+
+  var domainTrace = domains.map(function (dom, di) {
+    var trace = { edges: [], nodeIds: {} };
+    var inId = "in" + di;
+    trace.nodeIds[inId] = true;
+    dom.col0.forEach(function (dotNum) {
+      var toId = "h0_" + (dotNum - 1);
+      var e = findEdge(inId, toId);
+      if (e) { trace.edges.push(e); trace.nodeIds[toId] = true; }
+    });
+    dom.edges01.forEach(function (pair) {
+      var fromId = "h0_" + (pair[0] - 1), toId = "h1_" + (pair[1] - 1);
+      var e = findEdge(fromId, toId);
+      if (e) { trace.edges.push(e); trace.nodeIds[fromId] = true; trace.nodeIds[toId] = true; }
+    });
+    dom.edges12.forEach(function (pair) {
+      var fromId = "h1_" + (pair[0] - 1), toId = "h2_" + (pair[1] - 1);
+      var e = findEdge(fromId, toId);
+      if (e) { trace.edges.push(e); trace.nodeIds[fromId] = true; trace.nodeIds[toId] = true; }
+    });
+    dom.edges2out.forEach(function (pair) {
+      var fromId = "h2_" + (pair[0] - 1), toId = "out" + outIndex[pair[1]];
+      var e = findEdge(fromId, toId);
+      if (e) { trace.edges.push(e); trace.nodeIds[fromId] = true; trace.nodeIds[toId] = true; }
+    });
+    return trace;
+  });
+
+  // ---- Reverse index: node id -> which domain traces pass through it,
+  //      so hovering a dot/output/column lights the WHOLE path(s) through
+  //      it, not just its direct wires. ----
+  var nodeToDomains = {};
+  domainTrace.forEach(function (trace, di) {
+    Object.keys(trace.nodeIds).forEach(function (id) {
+      (nodeToDomains[id] || (nodeToDomains[id] = [])).push(di);
+    });
+  });
+
+  // ---- Highlighting: node -> its direct edges (both directions) + pulses ----
   function clear() {
     mount.classList.remove("is-hovering");
-    edges.forEach(function (e) { e.el.classList.remove("is-active"); });
+    edges.forEach(function (e) {
+      e.el.classList.remove("is-active");
+      e.spark.classList.remove("is-active");
+    });
     Object.keys(nodes).forEach(function (id) { nodes[id].el.classList.remove("is-active"); });
   }
   function activateNodes(ids) {
     mount.classList.add("is-hovering");
-    var set = {};
-    ids.forEach(function (id) { set[id] = true; });
     ids.forEach(function (id) {
       var n = nodes[id]; if (!n) return;
       n.el.classList.add("is-active");
       n.edges.forEach(function (e) {
         e.el.classList.add("is-active");
+        e.spark.classList.add("is-active");
         var other = e.from === id ? e.to : e.from;
         if (nodes[other]) nodes[other].el.classList.add("is-active");
       });
     });
   }
 
-  // input boxes + outputs: hover/focus highlight their cone
-  ["in0", "in1", "in2", "in3", "out0", "out1", "out2"].forEach(function (id) {
-    var n = nodes[id]; if (!n) return;
-    n.el.addEventListener("mouseenter", function () { activateNodes([id]); });
+  function activateDomain(di) {
+    mount.classList.add("is-hovering");
+    var trace = domainTrace[di];
+    Object.keys(trace.nodeIds).forEach(function (id) {
+      if (nodes[id]) nodes[id].el.classList.add("is-active");
+    });
+    trace.edges.forEach(function (e) {
+      e.el.classList.add("is-active");
+      e.spark.classList.add("is-active");
+    });
+  }
+
+  // hidden dots and outputs: highlight every curated path running through
+  // that node (falling back to its direct wires if no path touches it)
+  function activateThrough(id) {
+    var dis = nodeToDomains[id];
+    if (dis && dis.length) { dis.forEach(activateDomain); }
+    else { activateNodes([id]); }
+  }
+  Object.keys(nodes).forEach(function (id) {
+    if (id.indexOf("in") === 0) return;   // inputs get the curated domain trace instead
+    var n = nodes[id];
+    n.el.addEventListener("mouseenter", function () { activateThrough(id); });
     n.el.addEventListener("mouseleave", clear);
-    n.el.addEventListener("focus", function () { activateNodes([id]); });
+    n.el.addEventListener("focus", function () { activateThrough(id); });
     n.el.addEventListener("blur", clear);
   });
 
-  // column headings: highlight the whole column + navigate
+  // inputs: curated multi-hop trace through to their own output(s)
+  inputs.forEach(function (label, i) {
+    var n = nodes["in" + i]; if (!n) return;
+    n.el.addEventListener("mouseenter", function () { activateDomain(i); });
+    n.el.addEventListener("mouseleave", clear);
+    n.el.addEventListener("focus", function () { activateDomain(i); });
+    n.el.addEventListener("blur", clear);
+  });
+
+  // column headings: highlight the whole column (all its wires, both sides) + navigate
   function navigate(target) {
     var dest = document.querySelector(target);
     if (!dest) return;
@@ -205,9 +320,19 @@
   svg.querySelectorAll(".nm-col").forEach(function (g) {
     var c = +g.dataset.col, target = g.dataset.target;
     var colIds = DOT_ROWS.map(function (_, r) { return "h" + c + "_" + r; });
-    g.addEventListener("mouseenter", function () { activateNodes(colIds); });
+    function activateColumn() {
+      mount.classList.add("is-hovering");
+      var touched = {};
+      colIds.forEach(function (id) {
+        (nodeToDomains[id] || []).forEach(function (di) { touched[di] = true; });
+      });
+      var any = false;
+      Object.keys(touched).forEach(function (di) { activateDomain(+di); any = true; });
+      if (!any) activateNodes(colIds);   // fallback: no curated path touches this column
+    }
+    g.addEventListener("mouseenter", activateColumn);
     g.addEventListener("mouseleave", clear);
-    g.addEventListener("focus", function () { activateNodes(colIds); });
+    g.addEventListener("focus", activateColumn);
     g.addEventListener("blur", clear);
     g.addEventListener("click", function () { navigate(target); });
     g.addEventListener("keydown", function (ev) {

@@ -1,9 +1,9 @@
 /* ============================================================
    tokens.css — single source of truth for palette + type scale.
-   LinkedIn-familiar light theme (per Eugene): warm-gray canvas,
-   white cards, LinkedIn blue accent, near-black text, Source Sans 3.
-   Components consume these vars; none redefine colour or font size.
-   Integration contract: see handoff.md.
+   Cream + forest-green + earthy-taupe theme (per Eugene, 2026-07-01):
+   warm cream canvas, forest-green accent (stability/growth), taupe
+   top nav. Components consume these vars; none redefine colour or
+   font size. Integration contract: see handoff.md.
    ============================================================ */
 
 /* ---- Font (self-hosted woff2, offline-safe) ------------------ */
@@ -16,21 +16,23 @@
 }
 
 :root {
-  /* ---- Palette (dark navy + olive; same navy family as the Manim clips) ---- */
-  --bg:          #0E1330;   /* deep navy canvas — matches studio/SuperVet clips */
-  --surface:     #1E2761;   /* lifted navy — cards, panels */
-  --surface-alt: #161C42;   /* deeper raised fill / hover */
-  --line:        rgba(237,237,230,0.14);  /* hairline borders, grid lines */
-  --text:        #EDEDE6;   /* warm off-white (never pure white) */
-  --text-dim:    #AEB4D0;   /* muted secondary text (AA on navy) */
-  /* olive accent: brightened from #6B8E23 to clear AA against navy when used as
-     text/links; deeper olive for fills/hover. Hue stays the requested olive. */
-  --brand:       #9CC04A;   /* olive — links, eyebrows, active highlights (AA) */
-  --brand-deep:  #6B8E23;   /* olive — hover / pressed */
-  --brand-fill:  #556B2F;   /* deep olive — solid button bg */
-  --brand-tint:  rgba(107,142,35,0.18);   /* olive wash for highlights */
-  --warn:        #E0795A;   /* warm caution accent (AI "outsourcing" side) */
-  --warn-tint:   rgba(224,121,90,0.16);
+  /* ---- Palette (cream + forest green + earthy taupe) ---- */
+  --bg:          #F5F1EA;   /* warm cream canvas */
+  --surface:     #FFFFFF;   /* cards, panels */
+  --surface-alt: #EFE8DD;   /* deeper raised fill / hover, still warm */
+  --bg-dark:     #2D5016;   /* deep forest — footer band, dark accents */
+  --nav-bg:      #8B8680;   /* earthy taupe — top nav only (stability) */
+  --line:        rgba(44,44,44,0.14);   /* hairline borders, grid lines */
+  --text:        #2C2C2C;   /* dark charcoal on cream */
+  --text-dim:    #6B655D;   /* muted warm gray secondary text */
+  --text-on-dark: #F5F1EA;  /* cream text for forest/taupe bands */
+  /* forest green: growth + calm. Deeper shade for hover/pressed states. */
+  --brand:       #2D5016;   /* forest green — links, buttons, active highlights */
+  --brand-deep:  #1F3A0F;   /* darker forest — hover / pressed */
+  --brand-fill:  #2D5016;   /* forest green — solid button bg */
+  --brand-tint:  rgba(45,80,22,0.12);   /* forest wash for highlights */
+  --warn:        #B5533C;   /* warm terracotta accent (AI "outsourcing" side) */
+  --warn-tint:   rgba(181,83,60,0.14);
 
   /* ---- Type family ---- */
   --font-sans: "Source Sans 3", -apple-system, system-ui, "Segoe UI", Roboto,
